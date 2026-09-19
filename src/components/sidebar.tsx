@@ -26,24 +26,24 @@ type ModelType = {
 
 const MODELS: ModelType[] = [
 	{
-		id: 'convnext',
-		name: 'ConvNeXt V2',
-		description: 'Base',
+		id: 'model-alpha',
+		name: 'Model Alpha',
+		description: 'Standard',
 	},
 	{
-		id: 'tropical',
-		name: 'Tropical',
-		description: 'Natural & open',
+		id: 'model-beta',
+		name: 'Model Beta',
+		description: 'Balanced',
 	},
 	{
-		id: 'mediterranean',
-		name: 'Mediterranean',
-		description: 'Warm & timeless',
+		id: 'model-gamma',
+		name: 'Model Gamma',
+		description: 'Detailed',
 	},
 	{
-		id: 'contemporary',
-		name: 'Contemporary',
-		description: 'Bold & refined',
+		id: 'model-delta',
+		name: 'Model Delta',
+		description: 'Experimental',
 	},
 ];
 
