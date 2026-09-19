@@ -1,1 +1,41 @@
 @import 'tailwindcss';
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #404040 transparent;
+}
+
+::selection {
+	@apply bg-white text-[#0b0b0b];
+}
+
+html,
+body {
+	font-family: Inter, sans-serif;
+}
+
+a,
+button {
+	@apply cursor-pointer
+    shrink-0
+    transition-all duration-300 ease-in-out
+    outline-none ring-0
+    hover:outline-none hover:ring-0
+    focus:outline-none focus:ring-0
+    active:outline-none active:ring-0;
+}
+
+input,
+select,
+textarea {
+	@apply shrink-0
+    transition-all duration-300 ease-in-out
+    outline-none ring-0
+    hover:outline-none hover:ring-0
+    focus:outline-none focus:ring-0
+    active:outline-none active:ring-0;
+}
+
+.no-scrollbar {
+	@apply [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden;
+}

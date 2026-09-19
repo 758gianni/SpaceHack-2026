@@ -1,4 +1,4 @@
-import { Sun, UserRound } from 'lucide-react';
+import { Satellite, Sun, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -6,18 +6,20 @@ const Header = () => {
 
 	return (
 		<header className='h-16 px-5 flex items-center justify-between shrink-0 border-b border-white/8 bg-[#0b0b0b]'>
-			<div className='flex items-center gap-8'>
+			<div className='flex items-center gap-6'>
 				<Link to='/' className='select-none cursor-pointer flex items-center gap-2.5 shrink-0'>
-					<div className='size-8 flex items-center justify-center rounded-lg bg-white'></div>
+					<div className='size-8 flex items-center justify-center rounded-lg bg-white'>
+						<Satellite className='size-5 shrink-0 text-black' />
+					</div>
 
-					<span className='font-semibold tracking-tight'>ArchAI</span>
+					<span className='font-semibold tracking-tight text-white'>SpaceHack</span>
 				</Link>
 
-				<div className='select-none h-5 w-px bg-white/10'></div>
+				<div className='select-none h-5 w-px bg-white/20'></div>
 
 				<div>
-					<p className='text-[11px] text-neutral-500 tracking-wider uppercase'>Project</p>
-					<p className='font-medium text-sm text-neutral-200'>Modern Villa</p>
+					<p className='text-[11px] text-neutral-500 tracking-wider uppercase'>Name</p>
+					<p className='font-medium text-sm text-neutral-200'>Team Satellites</p>
 				</div>
 			</div>
 
