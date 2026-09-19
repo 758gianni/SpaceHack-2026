@@ -1,5 +1,5 @@
-import { Image } from 'lucide-react';
-import { type FC } from 'react';
+import { ArrowRight, Image, Sparkle } from 'lucide-react';
+import { useLayoutEffect, useRef, useState, type FC } from 'react';
 
 const Result: FC = () => {
 	return (
@@ -30,6 +30,19 @@ const Result: FC = () => {
 };
 
 const Results = () => {
+	const [prompt, setPrompt] = useState<string>('');
+	const promptRef = useRef<HTMLTextAreaElement>(null);
+
+	useLayoutEffect(() => {
+		const textarea = promptRef.current;
+
+		if (!textarea) return;
+
+		textarea.style.height = 'auto';
+		textarea.style.height = `${Math.min(textarea.scrollHeight, 100)}px`;
+		textarea.style.overflowY = textarea.scrollHeight > 100 ? 'auto' : 'hidden';
+	}, [prompt]);
+
 	return (
 		<div className='flex flex-col flex-1'>
 			<div className='min-h-0 p-8 flex items-center justify-center gap-4 flex-1 overflow-auto'>
@@ -39,21 +52,17 @@ const Results = () => {
 			</div>
 
 			<div className='shrink-0 px-6 pb-6'>
-				<div className='max-w-[900px] mx-auto'>
-					<div className='rounded-2xl border border-white/[0.09] bg-[#111] shadow-xl'>
-						<div className='flex items-center gap-3 p-3'>
-							<div className='w-8 h-8 rounded-lg bg-white/[0.06] flex items-center justify-center shrink-0'>
-								<svg className='w-4 h-4 text-neutral-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-									<path d='M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z' stroke='currentColor' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' />
-								</svg>
+				<div className='max-w-200 mx-auto'>
+					<div className='rounded-2xl border border-white/9 bg-[#111] shadow-xl'>
+						<div className='p-3 flex items-center gap-3'>
+							<div className='select-none size-8 flex items-center justify-center shrink-0 rounded-lg bg-white/6'>
+								<Sparkle className='size-3.5 shrink-0' />
 							</div>
 
-							<input type='text' placeholder='Ask AI to change something...' className='flex-1 bg-transparent outline-none text-sm text-neutral-200 placeholder:text-neutral-600' />
+							<textarea ref={promptRef} rows={1} value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder='Ask AI to change something...' className='h-8 max-h-25 w-full flex-1 bg-transparent px-0 py-1.5 text-sm text-neutral-200 leading-5 placeholder:text-neutral-600 resize-none overflow-y-hidden' />
 
-							<button className='w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center hover:bg-neutral-200 transition'>
-								<svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-									<path d='M5 12h13M13 6l6 6-6 6' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' />
-								</svg>
+							<button type='button' onClick={() => {}} className='size-9 flex items-center justify-center rounded-lg bg-white text-black hover:bg-neutral-200 active:scale-[0.99]' title='Send prompt'>
+								<ArrowRight className='size-4 shrink-0' />
 							</button>
 						</div>
 
