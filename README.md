@@ -1,1 +1,0 @@
-# SpaceHack-2026
