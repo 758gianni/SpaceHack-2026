@@ -30,13 +30,16 @@ const Result: FC = () => {
 };
 
 const Results = () => {
-	const [prompt, setPrompt] = useState<string>('');
 	const promptRef = useRef<HTMLTextAreaElement>(null);
+
+	const [prompt, setPrompt] = useState<string>('');
 
 	useLayoutEffect(() => {
 		const textarea = promptRef.current;
 
-		if (!textarea) return;
+		if (!textarea) {
+			return;
+		}
 
 		textarea.style.height = 'auto';
 		textarea.style.height = `${Math.min(textarea.scrollHeight, 100)}px`;
@@ -61,17 +64,15 @@ const Results = () => {
 
 							<textarea ref={promptRef} rows={1} value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder='Ask AI to change something...' className='h-8 max-h-25 w-full flex-1 bg-transparent px-0 py-1.5 text-sm text-neutral-200 leading-5 placeholder:text-neutral-600 resize-none overflow-y-hidden' />
 
-							<button type='button' onClick={() => {}} className='size-9 flex items-center justify-center rounded-lg bg-white text-black hover:bg-neutral-200 active:scale-[0.99]' title='Send prompt'>
+							<button type='button' onClick={() => {}} className='select-none size-9 flex items-center justify-center rounded-lg bg-white text-black hover:bg-neutral-200 active:scale-[0.99]' title='Send prompt'>
 								<ArrowRight className='size-4 shrink-0' />
 							</button>
 						</div>
 
 						<div className='px-4 pb-3 flex items-center gap-2'>
-							<button className='px-2.5 py-1.5 rounded-md bg-white/[0.04] text-[10px] text-neutral-500 hover:text-neutral-300 transition'>Make it larger</button>
-
-							<button className='px-2.5 py-1.5 rounded-md bg-white/[0.04] text-[10px] text-neutral-500 hover:text-neutral-300 transition'>Add a pool</button>
-
-							<button className='px-2.5 py-1.5 rounded-md bg-white/[0.04] text-[10px] text-neutral-500 hover:text-neutral-300 transition'>More modern</button>
+							<button className='select-none px-2.5 py-1.5 rounded-md bg-white/4 text-[10px] text-neutral-500 hover:text-neutral-300'>Lorem ipsum</button>
+							<button className='select-none px-2.5 py-1.5 rounded-md bg-white/4 text-[10px] text-neutral-500 hover:text-neutral-300'>Lorem ipsum</button>
+							<button className='select-none px-2.5 py-1.5 rounded-md bg-white/4 text-[10px] text-neutral-500 hover:text-neutral-300'>Lorem ipsum</button>
 						</div>
 					</div>
 				</div>
