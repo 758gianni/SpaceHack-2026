@@ -1,6 +1,7 @@
 import { ArrowDownToLine, Image, Maximize, Minimize, Redo, Undo } from 'lucide-react';
 import { useEffect, useState, type FC } from 'react';
 import { Header } from './components/header';
+import { Preloader } from './components/preloader';
 import { Sidebar } from './components/sidebar';
 
 const Result: FC<any> = ({}) => {
@@ -32,6 +33,7 @@ const Result: FC<any> = ({}) => {
 };
 
 const App = () => {
+	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
 
 	const handleUndo = () => {};
@@ -59,6 +61,18 @@ const App = () => {
 			document.removeEventListener('fullscreenchange', handleFullscreenChange);
 		};
 	}, []);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setIsLoading(false);
+		}, 1000);
+
+		return () => clearTimeout(timer);
+	}, []);
+
+	if (isLoading) {
+		return <Preloader />;
+	}
 
 	return (
 		<div className='h-screen flex flex-col'>
