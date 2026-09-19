@@ -49,7 +49,7 @@ const MODELS: ModelType[] = [
 
 const Sidebar = () => {
 	const [title, setTitle] = useState<string>('');
-	const [description, setDescription] = useState<string>('');
+	// const [description, setDescription] = useState<string>('');
 	// const [bedrooms, setBedrooms] = useState(3);
 	const [precision, setPrecision] = useState<PrecisionType['id']>('fp32');
 	const [model, setModel] = useState<ModelType['id']>('convnext');
