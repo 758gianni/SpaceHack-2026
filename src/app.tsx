@@ -1,8 +1,8 @@
+import { Header } from '@/components/header';
+import { Preloader } from '@/components/preloader';
+import { Sidebar } from '@/components/sidebar';
 import { ArrowDownToLine, Image, Maximize, Minimize, Redo, Undo } from 'lucide-react';
 import { useEffect, useState, type FC } from 'react';
-import { Header } from './components/header';
-import { Preloader } from './components/preloader';
-import { Sidebar } from './components/sidebar';
 
 const Result: FC<any> = ({}) => {
 	return (
